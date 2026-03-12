@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-dark: #1a5c2d;
+  --color-brand-light: #e8f5e9;
+  --color-brand-lighter: #d5ebd9;
+  --color-brand-lightest: #c8e6c9;
+  --color-text-body: #6b7280;
+
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 shadow-sm transition-all duration-300;
   }
 }
 
+@keyframes floatGradients {
+  0% { background-position: 0% 0%; }
+  15% { background-position: 100% 20%; }
+  30% { background-position: 80% 100%; }
+  45% { background-position: 20% 80%; }
+  60% { background-position: 100% 50%; }
+  75% { background-position: 0% 100%; }
+  85% { background-position: 50% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  background-image: radial-gradient(circle at center, rgba(34, 197, 94, 0.22) 0, transparent 35%);
+  background-size: 250% 250%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: floatGradients 40s ease-in-out infinite alternate;
 }

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Canna Lab — Jornada do Paciente</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #F7F9F7; min-height: 100vh; }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%); padding: 24px 32px 18px; color: white; }
+  .header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+  .header-badge { background: rgba(255,255,255,0.15); border-radius: 20px; padding: 2px 10px; font-size: 11px; margin-left: 8px; }
+  .header-sub { font-size: 14px; opacity: 0.85; }
+  .header-path { font-size: 12px; opacity: 0.6; margin-top: 3px; }
+
+  /* LEGEND */
+  .legend { background: white; border-bottom: 1px solid #E8E8E8; padding: 10px 32px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .legend-label { font-size: 11px; color: #999; font-weight: 700; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #555; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .legend-hint { margin-left: auto; font-size: 11px; color: #AAA; }
+
+  /* FILTERS */
+  .filters { background: white; border-bottom: 1px solid #EEE; padding: 10px 32px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { padding: 5px 14px; border-radius: 20px; border: none; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s; }
+
+  /* LAYOUT */
+  .layout { display: flex; }
+  .main { flex: 1; padding: 28px 32px; }
+  .sidebar { width: 250px; background: white; border-left: 1px solid #EEE; padding: 24px 18px; min-height: 100vh; flex-shrink: 0; }
+
+  /* PHASE LABEL */
+  .phase-label { display: inline-block; color: white; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; padding: 4px 14px; border-radius: 12px; margin-bottom: 10px; }
+
+  /* STEP ROW */
+  .step-row { display: flex; gap: 0; margin-bottom: 4px; }
+  .timeline-col { display: flex; flex-direction: column; align-items: center; margin-right: 16px; padding-top: 6px; }
+  .step-dot { width: 38px; height: 38px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 17px; cursor: pointer; transition: all 0.2s; flex-shrink: 0; border: 2px solid #ccc; }
+  .timeline-line { width: 2px; background: #DDD; flex: 1; min-height: 20px; }
+
+  /* CARD */
+  .card { flex: 1; cursor: pointer; background: white; border: 1.5px solid #EBEBEB; border-radius: 12px; padding: 14px 18px; margin-bottom: 6px; transition: all 0.18s; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .card-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .card-title-group { display: flex; align-items: center; gap: 10px; }
+  .card-num { font-size: 11px; font-weight: 700; color: #BBB; min-width: 26px; }
+  .card-title { font-size: 15px; font-weight: 600; color: #1A1A1A; }
+  .card-badges { display: flex; gap: 6px; }
+  .badge-wa { background: #E8F5E9; color: #2E7D32; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 10px; }
+  .badge-channel { background: #F5F5F5; color: #666; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 10px; }
+  .card-desc { font-size: 13px; color: #666; margin: 8px 0 0 36px; line-height: 1.55; }
+
+  /* EXPANDED */
+  .expanded { margin-top: 14px; margin-left: 36px; display: flex; flex-direction: column; gap: 8px; }
+  .box { border-radius: 8px; padding: 10px 14px; }
+  .box-label { font-size: 11px; font-weight: 800; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .box-text { font-size: 13px; color: #333; }
+  .box-decision { background: #FFFDE7; border: 1px solid #F9A825; }
+  .box-decision .box-label { color: #E65100; }
+  .box-ok { background: #E8F5E9; border: 1px solid #A5D6A7; }
+  .box-ok .box-label { color: #2E7D32; }
+  .box-error { background: #FFEBEE; border: 1px solid #EF9A9A; }
+  .box-error .box-label { color: #C62828; }
+  .box-cta { background: #E3F2FD; border: 1px solid #90CAF9; }
+  .box-cta .box-label { color: #1565C0; }
+  .box-note { background: #F3E5F5; border: 1px solid #CE93D8; }
+  .boxes-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .boxes-row .box { flex: 1; min-width: 200px; }
+
+  /* SIDEBAR */
+  .sidebar-title { font-size: 11px; font-weight: 800; color: #999; letter-spacing: 0.1em; margin-bottom: 18px; }
+  .sidebar-phase { margin-bottom: 18px; }
+  .sidebar-phase-header { border-radius: 0 6px 6px 0; padding: 7px 12px; margin-bottom: 6px; border-left: 3px solid; }
+  .sidebar-phase-name { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; }
+  .sidebar-phase-count { font-size: 11px; color: #888; margin-top: 1px; }
+  .sidebar-step { font-size: 12px; color: #777; padding: 4px 12px; cursor: pointer; line-height: 1.4; }
+  .sidebar-step:hover { color: #2E7D32; }
+  .sidebar-divider { border-top: 1px solid #EEE; padding-top: 16px; margin-top: 4px; }
+  .sidebar-wa-item { font-size: 12px; color: #388E3C; padding: 3px 0; display: flex; gap: 6px; }
+  .sidebar-entry { font-size: 12px; color: #555; line-height: 1.6; margin-top: 8px; }
+  .sidebar-entry span { color: #888; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span style="font-size:22px">🌿</span>
+    <span class="header-title">CANNA LAB</span>
+    <span class="header-badge">v2.0</span>
+  </div>
+  <div class="header-sub">Jornada do Paciente — Triagem Simplificada + WhatsApp</div>
+  <div class="header-path">Condição no site → Pré-cadastro (nome + WhatsApp) → Atendimento → Plataforma → Consulta → Pós-venda</div>
+</div>
+
+<div class="legend">
+  <span class="legend-label">CANAIS:</span>
+  <div class="legend-item"><span class="legend-dot" style="background:#2E7D32"></span>🌐 Site</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#25D366"></span>💬 WhatsApp</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#1565C0"></span>💻 Plataforma</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#C62828"></span>🔗 Site + WhatsApp</div>
+  <span class="legend-hint">Clique em um passo para detalhes</span>
+</div>
+
+<div class="filters" id="filters"></div>
+
+<div class="layout">
+  <div class="main" id="main"></div>
+  <div class="sidebar" id="sidebar"></div>
+</div>
+
+<script>
+const STEPS = [
+  { phase:"TOPO DE FUNIL", phaseColor:"#1B5E20", phaseBg:"#E8F5E9", channel:"Site", icon:"🌐", id:1,
+    title:"Acessa o site da Canna Lab",
+    desc:"Paciente chega via anúncio, busca orgânica ou indicação. Vê hero com proposta de valor clara e CTA direto.",
+    decision:null, happy:null, exception:null, whatsapp:false,
+    cta:"CTA: \"Para qual condição você busca tratamento?\" — grade de patologias já visível na home, sem clique extra.", note:null },
+  { phase:"TOPO DE FUNIL", phaseColor:"#1B5E20", phaseBg:"#E8F5E9", channel:"Site", icon:"🩺", id:2,
+    title:"Seleciona a condição de saúde",
+    desc:"Grade com patologias: Ansiedade, Insônia, Dores crônicas, Epilepsia, TDAH, Fibromialgia, etc. Um clique — sem formulário, sem cadastro ainda.",
+    decision:"Clicou em uma condição?",
+    happy:"Avança automaticamente para o pré-cadastro com a condição já registrada",
+    exception:"Não encontrou sua condição: opção \"Outros\" disponível na grade",
+    whatsapp:false, cta:null, note:"⚡ Zero atrito — nenhum campo para preencher neste passo." },
+  { phase:"TOPO DE FUNIL", phaseColor:"#1B5E20", phaseBg:"#E8F5E9", channel:"Site", icon:"📋", id:3,
+    title:"Pré-cadastro: Nome + WhatsApp",
+    desc:"Tela simples com 2 campos: nome e número de WhatsApp (com máscara automática). Abaixo do botão: \"Seus dados são protegidos pela LGPD.\"",
+    decision:"Dados válidos e enviados?",
+    happy:"WhatsApp abre com mensagem pré-preenchida: nome + condição selecionada. Lead capturado no sistema.",
+    exception:"Campo inválido: erro inline, sem perder o que já foi preenchido",
+    whatsapp:true,
+    cta:"Botão CTA: \"Falar com a equipe no WhatsApp\" — abre wa.me com mensagem automática já formatada",
+    note:"🔑 A condição selecionada no passo anterior é passada automaticamente na mensagem. A equipe já sabe o motivo do contato antes de responder." },
+  { phase:"CONVERSÃO", phaseColor:"#0D47A1", phaseBg:"#E3F2FD", channel:"WhatsApp", icon:"💬", id:4,
+    title:"Atendimento pré-consulta via WhatsApp",
+    desc:"Equipe recebe o lead com nome e condição já identificados. Tira dúvidas, explica o processo, apresenta os planos (R$100–R$250) e envia o link de cadastro/agendamento.",
+    decision:"Paciente confirma interesse?",
+    happy:"Recebe link personalizado para cadastro na plataforma",
+    exception:"Sem resposta em 24h: follow-up automático. Sem resposta em 72h: segundo follow-up e encerramento do ciclo",
+    whatsapp:true, cta:null,
+    note:"💡 Responder em até 5 minutos aumenta conversão em até 3x. Considere bot de boas-vindas imediato + humano em sequência." },
+  { phase:"CADASTRO", phaseColor:"#4A148C", phaseBg:"#F3E5F5", channel:"Plataforma", icon:"👤", id:5,
+    title:"Cadastro completo na plataforma",
+    desc:"Paciente cria conta com CPF, e-mail e senha. Aceita Termos de Uso e Consentimento LGPD. Nome e condição do pré-cadastro são importados automaticamente.",
+    decision:"CPF válido e termos aceitos?",
+    happy:"Conta criada; dados do pré-cadastro já vinculados ao perfil",
+    exception:"CPF inválido: erro claro. Termos não aceitos: processo interrompido com explicação do motivo",
+    whatsapp:false, cta:null, note:null },
+  { phase:"CADASTRO", phaseColor:"#4A148C", phaseBg:"#F3E5F5", channel:"Plataforma", icon:"📄", id:6,
+    title:"Anamnese complementar",
+    desc:"Histórico clínico detalhado: medicamentos em uso, condições preexistentes, upload opcional de exames. Alimenta o prontuário antes da consulta.",
+    decision:"Campos obrigatórios preenchidos?",
+    happy:"Prontuário pré-montado; agendamento liberado",
+    exception:"Sistema indica exatamente os campos faltantes e bloqueia avanço",
+    whatsapp:false, cta:null,
+    note:"🩺 O médico chega na consulta já com contexto — reduz duração de 30 para ~20 min." },
+  { phase:"AGENDAMENTO", phaseColor:"#E65100", phaseBg:"#FFF3E0", channel:"Plataforma", icon:"📅", id:7,
+    title:"Escolha de horário e pagamento",
+    desc:"Paciente visualiza agenda disponível, escolhe médico e horário. Pagamento via cartão, Pix ou boleto (R$100–R$250).",
+    decision:"Pagamento aprovado?",
+    happy:"Consulta confirmada. Recibo gerado. Notificação por e-mail + WhatsApp.",
+    exception:"Erro no gateway: nova tentativa ou outro meio. WhatsApp notifica a falha e oferece ajuda.",
+    whatsapp:true, cta:null, note:null },
+  { phase:"PRÉ-CONSULTA", phaseColor:"#004D40", phaseBg:"#E0F2F1", channel:"WhatsApp", icon:"🔔", id:8,
+    title:"Lembretes pré-consulta",
+    desc:"Mensagens automáticas 24h e 1h antes: lembra o horário, orienta como acessar a sala de vídeo, confirma presença.",
+    decision:"Paciente confirma presença?",
+    happy:"Consulta mantida; médico notificado",
+    exception:"Cancelamento: política aplicada (reembolso integral se >24h). Reagendamento oferecido via WhatsApp.",
+    whatsapp:true, cta:null, note:null },
+  { phase:"CONSULTA", phaseColor:"#1A237E", phaseBg:"#E8EAF6", channel:"Plataforma", icon:"🎥", id:9,
+    title:"Teleconsulta por vídeo",
+    desc:"Sala de vídeo integrada. Médico acessa prontuário e anamnese pré-preenchidos. Duração média: 20–30 min.",
+    decision:"Médico decide prescrever?",
+    happy:"Preenche prescrição, assina digitalmente. Documentos disponibilizados no painel do paciente.",
+    exception:"Não prescreve: justificativa registrada no prontuário. Paciente orientado sobre próximos passos.",
+    whatsapp:false, cta:null,
+    note:"⚖️ A decisão clínica é exclusiva do médico — a plataforma não sugere nem condiciona." },
+  { phase:"PÓS-CONSULTA", phaseColor:"#B71C1C", phaseBg:"#FFEBEE", channel:"Plataforma + WhatsApp", icon:"📁", id:10,
+    title:"Entrega de receita e relatório",
+    desc:"WhatsApp notifica: \"Seus documentos estão prontos no painel.\" Paciente acessa e faz download de receita e relatório médico.",
+    decision:"Documentos disponíveis?",
+    happy:"Download liberado. Link direto para o painel enviado pelo WhatsApp.",
+    exception:"Demora no upload: sistema alerta equipe para completar em até 2h.",
+    whatsapp:true, cta:null, note:null },
+  { phase:"PÓS-CONSULTA", phaseColor:"#B71C1C", phaseBg:"#FFEBEE", channel:"WhatsApp", icon:"🏛️", id:11,
+    title:"Suporte ANVISA via WhatsApp",
+    desc:"Equipe orienta o paciente no processo junto à ANVISA: documentos necessários, onde protocolar, prazos esperados. A plataforma organiza o checklist.",
+    decision:null, happy:null, exception:null, whatsapp:true,
+    cta:"A plataforma organiza o checklist de documentos. O protocolo é feito pelo próprio paciente no gov.br.",
+    note:"⚠️ A Canna Lab não protocola junto à ANVISA — orienta e organiza apenas." },
+  { phase:"RETENÇÃO", phaseColor:"#33691E", phaseBg:"#F1F8E9", channel:"Plataforma + WhatsApp", icon:"🔄", id:12,
+    title:"Acompanhamento e renovação",
+    desc:"Alertas automáticos 60 e 30 dias antes do vencimento da autorização ANVISA. Oferta de consulta de retorno.",
+    decision:"Paciente agenda retorno?",
+    happy:"Reinicia o ciclo a partir do passo 7. Histórico clínico preservado.",
+    exception:"Reengajamento via WhatsApp com lembrete adicional em 15 dias.",
+    whatsapp:true, cta:null, note:null },
+];
+
+const PHASES = [...new Set(STEPS.map(s => s.phase))];
+const PHASE_META = {};
+STEPS.forEach(s => { PHASE_META[s.phase] = { color: s.phaseColor, bg: s.phaseBg }; });
+
+let activeId = null;
+let filterPhase = "TODAS";
+
+function render() {
+  renderFilters();
+  renderMain();
+  renderSidebar();
+}
+
+function renderFilters() {
+  const el = document.getElementById('filters');
+  const allPhases = ["TODAS", ...PHASES];
+  el.innerHTML = allPhases.map(p => {
+    const active = filterPhase === p;
+    const bg = active ? (PHASE_META[p]?.color || "#333") : "#F0F0F0";
+    const color = active ? "white" : "#666";
+    return `<button class="filter-btn" style="background:${bg};color:${color}" onclick="setFilter('${p}')">${p}</button>`;
+  }).join('');
+}
+
+function renderMain() {
+  const el = document.getElementById('main');
+  const filtered = filterPhase === "TODAS" ? STEPS : STEPS.filter(s => s.phase === filterPhase);
+  let html = '';
+  filtered.forEach((step, idx) => {
+    const isActive = activeId === step.id;
+    const meta = PHASE_META[step.phase];
+    const showPhase = idx === 0 || filtered[idx-1].phase !== step.phase;
+
+    if (showPhase) {
+      html += `<div class="phase-label" style="background:${meta.color};margin-top:${idx>0?'24px':'0'}">${step.phase}</div>`;
+    }
+
+    html += `<div class="step-row">
+      <div class="timeline-col">
+        <div class="step-dot" id="dot-${step.id}"
+          style="border-color:${meta.color};background:${isActive?meta.color:'white'};${isActive?`box-shadow:0 0 0 5px ${meta.bg}`:''}"
+          onclick="toggleStep(${step.id})">${step.icon}</div>
+        ${idx < filtered.length-1 ? '<div class="timeline-line"></div>' : ''}
+      </div>
+      <div class="card" id="card-${step.id}"
+        style="background:${isActive?meta.bg:'white'};border-color:${isActive?meta.color:'#EBEBEB'}"
+        onclick="toggleStep(${step.id})">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-num">#${String(step.id).padStart(2,'0')}</span>
+            <span class="card-title">${step.title}</span>
+          </div>
+          <div class="card-badges">
+            ${step.whatsapp ? '<span class="badge-wa">💬 WhatsApp</span>' : ''}
+            <span class="badge-channel">${step.channel}</span>
+          </div>
+        </div>
+        <p class="card-desc">${step.desc}</p>
+        ${isActive ? renderExpanded(step) : ''}
+      </div>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderExpanded(step) {
+  let html = '<div class="expanded">';
+  if (step.decision) {
+    html += `<div class="box box-decision"><div class="box-label">⚡ DECISÃO</div><div class="box-text">${step.decision}</div></div>`;
+  }
+  if (step.happy || step.exception) {
+    html += '<div class="boxes-row">';
+    if (step.happy) html += `<div class="box box-ok"><div class="box-label">✅ FLUXO OK</div><div class="box-text">${step.happy}</div></div>`;
+    if (step.exception) html += `<div class="box box-error"><div class="box-label">⚠️ EXCEÇÃO</div><div class="box-text">${step.exception}</div></div>`;
+    html += '</div>';
+  }
+  if (step.cta) {
+    html += `<div class="box box-cta"><div class="box-label">🎯 CTA / OBSERVAÇÃO</div><div class="box-text">${step.cta}</div></div>`;
+  }
+  if (step.note) {
+    html += `<div class="box box-note"><div class="box-text">${step.note}</div></div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderSidebar() {
+  const el = document.getElementById('sidebar');
+  let html = `<div class="sidebar-title">RESUMO DO FUNIL</div>`;
+
+  PHASES.forEach(phase => {
+    const steps = STEPS.filter(s => s.phase === phase);
+    const meta = PHASE_META[phase];
+    html += `<div class="sidebar-phase">
+      <div class="sidebar-phase-header" style="background:${meta.bg};border-left-color:${meta.color}">
+        <div class="sidebar-phase-name" style="color:${meta.color}">${phase}</div>
+        <div class="sidebar-phase-count">${steps.length} passo${steps.length>1?'s':''}</div>
+      </div>`;
+    steps.forEach(s => {
+      const isActive = activeId === s.id;
+      html += `<div class="sidebar-step" style="color:${isActive?meta.color:'#777'};font-weight:${isActive?700:400}"
+        onclick="jumpTo(${s.id})">${s.icon} ${s.title}</div>`;
+    });
+    html += '</div>';
+  });
+
+  const waSteps = STEPS.filter(s => s.whatsapp);
+  html += `<div class="sidebar-divider">
+    <div class="sidebar-title">TOUCHPOINTS WHATSAPP</div>
+    ${waSteps.map(s => `<div class="sidebar-wa-item"><span>💬</span><span>#${String(s.id).padStart(2,'0')} ${s.title}</span></div>`).join('')}
+  </div>`;
+
+  html += `<div class="sidebar-divider">
+    <div class="sidebar-title">ENTRADA NO FUNIL</div>
+    <div class="sidebar-entry">1. Seleciona condição<br>2. Nome + WhatsApp<br>3. Clica → abre WA<br><span>Sem cadastro ainda ✓</span></div>
+  </div>`;
+
+  el.innerHTML = html;
+}
+
+function toggleStep(id) {
+  activeId = activeId === id ? null : id;
+  render();
+  if (activeId) {
+    setTimeout(() => {
+      const card = document.getElementById('card-' + id);
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+  }
+}
+
+function setFilter(phase) {
+  filterPhase = phase;
+  activeId = null;
+  render();
+}
+
+function jumpTo(id) {
+  filterPhase = "TODAS";
+  activeId = id;
+  render();
+  setTimeout(() => {
+    const card = document.getElementById('card-' + id);
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 50);
+}
+
+render();
+</script>
+</body>
+</html>
