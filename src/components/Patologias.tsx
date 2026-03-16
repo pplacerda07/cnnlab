@@ -236,7 +236,7 @@ export default function Patologias() {
                                                 className="text-xs font-medium px-3 py-1 rounded-full"
                                                 style={{
                                                     backgroundColor: 'rgba(255,255,255,0.65)',
-                                                    color: '#2d5a2d',
+                                                    color: '#00642e',
                                                 }}
                                             >
                                                 {tag}
@@ -269,14 +269,14 @@ export default function Patologias() {
                                             height="32"
                                             viewBox="0 0 24 24"
                                             fill="none"
-                                            stroke="#2d5a2d"
+                                            stroke="#00642e"
                                             strokeWidth="1.5"
                                         >
                                             <rect x="3" y="3" width="18" height="18" rx="3" />
                                             <circle cx="8.5" cy="8.5" r="1.5" />
                                             <path d="M21 15l-5-5L5 21" />
                                         </svg>
-                                        <span className="text-xs uppercase tracking-widest text-[#2d5a2d]">
+                                        <span className="text-xs uppercase tracking-widest text-[#00642e]">
                                             Foto
                                         </span>
                                     </div>

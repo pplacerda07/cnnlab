@@ -112,7 +112,7 @@ function MapRoutePath() {
                 {/* Ghost trail — faint dashed line showing the full route */}
                 <path
                     d={MAP_PATH}
-                    stroke="#1a5c2d"
+                    stroke="#00642e"
                     strokeWidth="2.5"
                     strokeDasharray="12 10"
                     strokeLinecap="round"
@@ -123,7 +123,7 @@ function MapRoutePath() {
                 {/* Animated path — draws itself on scroll */}
                 <motion.path
                     d={MAP_PATH}
-                    stroke="#1a5c2d"
+                    stroke="#00642e"
                     strokeWidth="2.5"
                     strokeDasharray="12 10"
                     strokeLinecap="round"

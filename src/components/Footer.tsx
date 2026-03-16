@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -9,7 +10,14 @@ export default function Footer() {
 
                     <div className="md:col-span-2">
                         <Link href="/" className="inline-block mb-4">
-                            <span className="font-bold text-2xl text-brand-dark tracking-tight">CANNALAB</span>
+                            <Image 
+                                src="/new_logo_nn.svg" 
+                                alt="CannaLab Logo" 
+                                width={120} 
+                                height={35} 
+                                className="brightness-0 saturate-100" // To make it match the dark background or adjust if needed
+                                // Removed brightness filter if logo is already correct color
+                            />
                         </Link>
                         <p className="text-gray-500 text-sm leading-relaxed max-w-sm">
                             Plataforma de facilitação de tratamento com cannabis medicinal focada em atendimento humanizado e na melhoria contínua da sua qualidade de vida.

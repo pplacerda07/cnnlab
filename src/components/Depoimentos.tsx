@@ -117,7 +117,7 @@ export default function Depoimentos() {
                         {/* Card verde escuro — social proof */}
                         <div
                             className="rounded-3xl p-7 flex flex-col justify-between"
-                            style={{ backgroundColor: '#1a3a1a', minHeight: '260px' }}
+                            style={{ backgroundColor: '#00642e', minHeight: '260px' }}
                         >
                             {/* Avatares + contagem */}
                             <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2 w-fit shadow-sm">

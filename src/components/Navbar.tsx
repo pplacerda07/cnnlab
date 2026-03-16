@@ -40,7 +40,14 @@ export default function Navbar() {
                 <div className="flex items-center justify-between w-full">
                     {/* Logo */}
                     <Link href="/" className="flex flex-col">
-                        <span className="font-bold text-2xl text-white tracking-tight drop-shadow-md">CANNALAB</span>
+                        <Image 
+                            src="/new_logo_nn.svg" 
+                            alt="CannaLab Logo" 
+                            width={140} 
+                            height={40} 
+                            priority
+                            className="drop-shadow-md"
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
