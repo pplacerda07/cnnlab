@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
@@ -8,56 +9,67 @@ const PATOLOGIAS = [
         tags: ['Cérebro & Humor', 'Alívio Natural'],
         title: 'Ansiedade',
         description: 'Atua nos receptores do sistema endocanabinoide reduzindo a hiperatividade do sistema nervoso e promovendo equilíbrio emocional.',
+        image: '/foto_patologia_Ansiedade.png',
     },
     {
         tags: ['Foco & Mente', 'Clareza Mental'],
         title: 'TDAH',
         description: 'Melhora o foco e reduz a impulsividade regulando a dopamina em pacientes com déficit de atenção.',
+        image: '/foto_patologia_TDAH.png',
     },
     {
         tags: ['Sono', 'Bem-Estar'],
         title: 'Insônia',
         description: 'Regula o ciclo circadiano e aumenta o tempo de sono profundo, reduzindo despertares noturnos.',
+        image: '/foto_patologia_Insonia.png',
     },
     {
         tags: ['Controle Motor', 'Neuroproteção'],
         title: 'Parkinson',
         description: 'Reduz tremores e rigidez além de ter propriedades neuroprotetoras que retardam a progressão da doença.',
+        image: '/foto_patologia_Parkinson.png',
     },
     {
         tags: ['Cérebro & Humor', 'Bem-Estar'],
         title: 'Depressão',
         description: 'Modula os receptores de serotonina e promove neuroplasticidade com menos efeitos colaterais.',
+        image: '/foto_patologia_Depressão.png',
     },
     {
         tags: ['Dor Crônica', 'Anti-inflamatório'],
         title: 'Fibromialgia',
         description: 'Age nos receptores de dor do sistema nervoso central reduzindo a hipersensibilidade característica.',
+        image: '/foto_patologia_Fibormialgia.png',
     },
     {
         tags: ['Controle de Crises'],
         title: 'Epilepsia',
         description: 'Redução comprovada da frequência de crises em pacientes resistentes a anticonvulsivantes tradicionais.',
+        image: '/foto_patologia_Epilepsia.png',
     },
     {
         tags: ['Dor Crônica'],
         title: 'Dor Crônica',
         description: 'Interagem com os receptores CB1 e CB2 oferecendo alívio duradouro sem risco de dependência dos opioides.',
+        image: '/foto_patologia_DorCronica.png',
     },
     {
         tags: ['Comportamento', 'Comunicação'],
         title: 'Autismo (TEA)',
         description: 'Melhora comportamentos repetitivos, irritabilidade e comunicação em pacientes com TEA.',
+        image: '/foto_patologia_Autismo.png',
     },
     {
         tags: ['Espasticidade', 'Neuropatia'],
         title: 'Esclerose Múltipla',
         description: 'Reduz espasticidade muscular, dor neuropática e fadiga como tratamento adjuvante reconhecido.',
+        image: '/foto_patologia_Esclerose Múltipla.png',
     },
     {
         tags: ['Oncologia', 'Bem-Estar'],
         title: 'Náusea Oncológica',
         description: 'Eficaz no controle de náuseas e vômitos em quimioterapia, melhorando a tolerância ao tratamento.',
+        image: '/foto_patologia_NaúseaAncologica.png',
     },
 ];
 
@@ -175,8 +187,8 @@ export default function Patologias() {
                             <span className="font-serif italic text-brand-dark">tratamos.</span>
                         </h2>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-lg">
-                            A Cannabis Medicinal possui eficácia comprovada
-                            cientificamente para diversas patologias.
+                            Cada pessoa chega com uma história diferente. 
+                            A cannabis medicinal pode fazer parte da sua.
                         </p>
                     </div>
 
@@ -255,31 +267,21 @@ export default function Patologias() {
                                     </p>
                                 </div>
 
-                                {/* Placeholder da foto — parte inferior */}
+                                {/* Imagem da Patologia — parte inferior */}
                                 <div
-                                    className="mx-4 mb-4 rounded-2xl flex items-center justify-center flex-shrink-0"
+                                    className="mx-4 mb-4 rounded-2xl flex items-center justify-center flex-shrink-0 relative overflow-hidden"
                                     style={{
                                         height: '190px',
                                         backgroundColor: 'rgba(255,255,255,0.35)',
                                     }}
                                 >
-                                    <div className="flex flex-col items-center gap-2 opacity-40">
-                                        <svg
-                                            width="32"
-                                            height="32"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="#00642e"
-                                            strokeWidth="1.5"
-                                        >
-                                            <rect x="3" y="3" width="18" height="18" rx="3" />
-                                            <circle cx="8.5" cy="8.5" r="1.5" />
-                                            <path d="M21 15l-5-5L5 21" />
-                                        </svg>
-                                        <span className="text-xs uppercase tracking-widest text-[#00642e]">
-                                            Foto
-                                        </span>
-                                    </div>
+                                    <Image
+                                        src={item.image}
+                                        alt={`Foto ilustrativa de ${item.title}`}
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        className="transition-transform duration-500 hover:scale-105"
+                                    />
                                 </div>
                             </div>
                         ))}

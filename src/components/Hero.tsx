@@ -2,27 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
-import { ShieldCheck, Stethoscope, FileCheck, ArrowRight, ArrowLeft } from 'lucide-react';
+import { ShieldCheck, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const CONDITIONS = [
     'Ansiedade', 'Insônia', 'Dor Crônica', 'Depressão',
     'Fibromialgia', 'Epilepsia', 'TDAH', 'Outra Condição'
 ];
 
-const HERO_IMAGES = [
-    '/new_backgorund.svg',
-];
-
 export default function Hero() {
     const [step, setStep] = useState(1);
     const [selectedCondition, setSelectedCondition] = useState('');
     const [formData, setFormData] = useState({ name: '', phone: '' });
-    const [activeImage, setActiveImage] = useState(0);
-
-    // Background image is unified, no need for active carousel
-    useEffect(() => {
-        // Keeps hydrated client but no visual switching needed
-    }, []);
 
     const handleConditionSelect = (condition: string) => {
         setSelectedCondition(condition);
@@ -75,8 +65,8 @@ export default function Hero() {
                             <div className="flex justify-between items-center mb-6">
                                 <h3 className="text-lg font-bold text-white leading-tight">
                                     {step === 1 ? 'Qual é a sua principal condição?' :
-                                     step === 2 ? 'WhatsApp para contato' :
-                                     'Para finalizar, seu nome'}
+                                        step === 2 ? 'WhatsApp para contato' :
+                                            'Para finalizar, seu nome'}
                                 </h3>
                                 <div className="flex gap-1 text-sm font-bold bg-white/15 px-2.5 py-1 rounded-full text-white/80">
                                     <span>{step}/3</span>
@@ -86,15 +76,15 @@ export default function Hero() {
                             {/* Step 1: Condition Selection */}
                             {step === 1 && (
                                 <div className="space-y-3">
-                                    <div className="grid grid-cols-1 gap-2">
+                                    <div className="grid grid-cols-2 gap-2">
                                         {CONDITIONS.map((condition) => (
                                             <button
                                                 key={condition}
                                                 onClick={() => handleConditionSelect(condition)}
-                                                className="w-full text-left py-3.5 px-4 rounded-xl border border-white/20 bg-white/10 hover:bg-white/25 hover:border-white/40 transition-all text-[15px] font-medium text-white/90 flex items-center justify-between group"
+                                                className="w-full text-left py-3.5 px-3 rounded-xl border border-white/20 bg-white/10 hover:bg-white/25 hover:border-white/40 transition-all text-[13px] font-medium text-white/90 flex items-center justify-between group"
                                             >
                                                 {condition}
-                                                <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-white" />
+                                                <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-white flex-shrink-0 ml-1" />
                                             </button>
                                         ))}
                                     </div>

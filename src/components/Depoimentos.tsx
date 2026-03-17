@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Star, ArrowUpRight, MessageCircle } from 'lucide-react';
 
 const AVATARES = [
@@ -47,15 +48,21 @@ export default function Depoimentos() {
                                 className="absolute inset-0 rounded-3xl overflow-hidden shadow-md"
                                 style={{ transform: 'rotate(3deg) scale(0.95)', transformOrigin: 'bottom center' }}
                             >
-                                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                                    <span className="text-gray-400 text-xs uppercase tracking-widest">Foto 2</span>
-                                </div>
+                                <Image
+                                    src="/paciente_foto_01.png"
+                                    alt="Foto de paciente"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
                             {/* Foto da frente */}
                             <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-lg">
-                                <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                                    <span className="text-gray-400 text-xs uppercase tracking-widest">Foto 1</span>
-                                </div>
+                                <Image
+                                    src="/paciente_foto_01.png"
+                                    alt="Foto de paciente"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
                         </div>
 
@@ -83,8 +90,13 @@ export default function Depoimentos() {
                     <div className="flex flex-col gap-5">
 
                         {/* Imagem */}
-                        <div className="w-full h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center shadow-sm">
-                            <span className="text-gray-400 text-xs uppercase tracking-widest">Foto paciente</span>
+                        <div className="w-full h-[260px] rounded-3xl overflow-hidden shadow-sm relative">
+                            <Image
+                                src="/paciente_foto_02.png"
+                                alt="Foto de paciente"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
 
                         {/* Estrelas */}

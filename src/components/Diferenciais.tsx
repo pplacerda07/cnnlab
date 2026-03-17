@@ -7,22 +7,22 @@ const ITEMS = [
     {
         title: 'Atendimento que acolhe',
         description: 'Você não é um protocolo. Ouvimos você sem pressa.',
-        image: 'https://plus.unsplash.com/premium_photo-1663013675005-cb6658dfa736?q=80&w=800&auto=format&fit=crop',
+        image: '/card01_foto.png',
     },
     {
         title: 'Sem burocracia',
         description: 'Triagem rápida e muito leve. Menos papel, mais ação.',
-        image: 'https://images.unsplash.com/photo-1556012676-e10db745a5d2?q=80&w=800&auto=format&fit=crop',
+        image: '/card02_foto.png',
     },
     {
         title: 'Médicos que entendem',
         description: 'Especialistas focados no seu bem-estar. Respeitamos a sua história.',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop',
+        image: '/card03_foto.png',
     },
     {
         title: 'Do início ao fim, juntos',
         description: 'Estamos sempre ao seu lado. Acompanhamento feito de perto.',
-        image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop',
+        image: '/card04_foto.png',
     },
 ];
 
@@ -43,8 +43,8 @@ export default function Diferenciais() {
                         transition={{ duration: 0.6 }}
                         className="text-4xl md:text-5xl lg:text-[4rem] font-sans font-medium text-[#111111] leading-[0.95] tracking-tight mb-6"
                     >
-                        Cannabis medicinal <br className="hidden md:block" />
-                        <span className="font-serif italic text-brand-dark">do jeito </span> que deveria ser.
+                        Sua saúde merece mais do que uma receita. <br className="hidden md:block" />
+                        Merece um acompanhamento <span className="font-serif italic text-brand-dark">de verdade</span>.
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function Diferenciais() {
                         transition={{ duration: 0.6, delay: 0.15 }}
                         className="text-xl md:text-2xl text-gray-500 font-sans font-light max-w-2xl leading-relaxed"
                     >
-                        Com médico especialista, suporte contínuo e alguém sempre ao seu lado em cada etapa desta jornada.
+                        Com um médico que te conhece, suporte contínuo e alguém presente em cada passo da sua jornada.
                     </motion.p>
                 </div>
 

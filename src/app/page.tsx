@@ -8,6 +8,7 @@ import FAQ from "@/components/FAQ";
 import Artigos from "@/components/Artigos";
 import CtaFinal from "@/components/CtaFinal";
 import Footer from "@/components/Footer";
+import WhatsappPopup from "@/components/WhatsappPopup";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FAQ />
       <CtaFinal />
       <Footer />
+      <WhatsappPopup />
     </main>
   );
 }

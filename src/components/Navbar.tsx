@@ -28,23 +28,21 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-4">
+        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-start px-24 pt-4">
             <nav
                 className={cn(
-                    'transition-all duration-300 relative',
-                    scrolled
-                        ? 'py-4 px-6 w-full max-w-5xl'
-                        : 'py-6 px-6 w-full max-w-5xl'
+                    'transition-all duration-300 relative w-full',
+                    scrolled ? 'py-4' : 'py-6'
                 )}
             >
                 <div className="flex items-center justify-between w-full">
-                    {/* Logo */}
+                    {/* Logo - alinhada à esquerda */}
                     <Link href="/" className="flex flex-col">
-                        <Image 
-                            src="/new_logo_nn.svg" 
-                            alt="CannaLab Logo" 
-                            width={140} 
-                            height={40} 
+                        <Image
+                            src="/new_logo_nn.svg"
+                            alt="CannaLab Logo"
+                            width={140}
+                            height={40}
                             priority
                             className="drop-shadow-md"
                         />
@@ -63,7 +61,7 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* CTA Button - Hidden to make header minimal as per request */}
+                    {/* CTA Button - Hidden */}
                     <div className="hidden">
                         <a
                             href={getDefaultWhatsAppLink()}
@@ -88,7 +86,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden absolute top-[calc(100%+12px)] w-full max-w-5xl bg-white/90 backdrop-blur-xl border border-white/50 shadow-xl rounded-2xl py-4 px-4 flex flex-col space-y-4">
+                <div className="md:hidden w-full bg-white/90 backdrop-blur-xl border border-white/50 shadow-xl rounded-2xl py-4 px-4 flex flex-col space-y-4 mt-2">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -106,7 +104,7 @@ export default function Navbar() {
                         className="bg-brand-dark text-white text-center hover:bg-brand-dark/90 px-6 py-3 rounded-full font-medium transition-colors mt-4"
                         onClick={() => setMobileMenuOpen(false)}
                     >
-                        Falar com specialist
+                        Falar com especialista
                     </a>
                 </div>
             )}
