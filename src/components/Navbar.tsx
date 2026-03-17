@@ -28,7 +28,7 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-start px-24 pt-4">
+        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-start px-6 md:px-12 lg:px-24 pt-4">
             <nav
                 className={cn(
                     'transition-all duration-300 relative w-full',

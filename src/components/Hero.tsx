@@ -30,7 +30,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative w-full min-h-screen flex items-center justify-center pt-28 pb-20 md:py-32 overflow-hidden">
+        <section className="relative w-full min-h-screen flex text-center lg:text-left items-center justify-center pt-32 lg:pt-28 pb-20 md:py-32 overflow-hidden">
             {/* Full SVG Background */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#0a150e]">
                 <img
@@ -41,17 +41,17 @@ export default function Hero() {
             </div>
 
             <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 mt-10 md:mt-0">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12 w-full">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12 w-full">
 
-                    <div className="lg:w-3/5 w-full relative z-10 flex flex-col justify-center max-w-2xl xl:max-w-3xl">
+                    <div className="lg:w-3/5 w-full relative z-10 flex flex-col justify-center max-w-2xl xl:max-w-3xl items-center lg:items-start text-center lg:text-left">
                         <h1 className="text-white leading-[1.1] tracking-tight flex flex-col font-sans uppercase drop-shadow-2xl">
-                            <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] font-bold block mb-1 drop-shadow-lg">
+                            <span className="text-4xl sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] font-bold block mb-1 drop-shadow-lg">
                                 bem-estar
                             </span>
-                            <span className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-bold block mb-1 drop-shadow-lg">
+                            <span className="text-3xl sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-bold block mb-1 drop-shadow-lg">
                                 em sua <span className="font-serif italic font-normal lowercase opacity-90 text-[1.15em] tracking-normal">forma</span>
                             </span>
-                            <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] font-bold block drop-shadow-lg">
+                            <span className="text-4xl sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] font-bold block drop-shadow-lg">
                                 mais pura
                             </span>
                         </h1>

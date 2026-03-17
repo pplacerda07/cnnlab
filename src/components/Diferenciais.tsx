@@ -58,7 +58,7 @@ export default function Diferenciais() {
                 </div>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                     {ITEMS.map((item, i) => (
                         <motion.div
                             key={i}
@@ -68,7 +68,7 @@ export default function Diferenciais() {
                             transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
                             // Slightly nudge horizontally on hover
                             whileHover={{ x: 8, transition: { duration: 0.4, ease: 'easeOut' } }}
-                            className="group relative w-full h-[450px] md:h-[550px] rounded-[2rem] overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-500"
+                            className="group relative w-full h-[300px] md:h-[550px] rounded-[2rem] overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-500"
                         >
                             {/* Background Image Placeholder */}
                             <div 
@@ -81,10 +81,10 @@ export default function Diferenciais() {
 
                             {/* Text Content overlaying the image */}
                             <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
-                                <h3 className="text-white text-2xl md:text-3xl font-serif font-medium leading-tight mb-3">
+                                <h3 className="text-white text-xl md:text-3xl font-serif font-medium leading-tight mb-2 md:mb-3">
                                     {item.title}
                                 </h3>
-                                <p className="text-white/80 font-sans font-light text-base md:text-lg leading-relaxed">
+                                <p className="text-white/80 font-sans font-light text-sm md:text-lg leading-snug md:leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
