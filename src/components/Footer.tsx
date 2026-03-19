@@ -35,10 +35,10 @@ export default function Footer() {
                         <div className="lg:col-span-5">
                             <Link href="/" className="inline-block mb-6">
                                 <Image
-                                    src="/new_logo_nn.svg"
+                                    src="/new_logo.svg"
                                     alt="CannaLab Logo"
-                                    width={140}
-                                    height={40}
+                                    width={160}
+                                    height={45}
                                     className="brightness-0 invert"
                                 />
                             </Link>

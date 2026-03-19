@@ -213,7 +213,7 @@ export default function Jornada() {
                                     <motion.div
                                         initial={{ opacity: 0, y: 50 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: false, margin: '-10%' }}
+                                        viewport={{ once: true, margin: '-5%' }}
                                         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                                         className={cn(
                                             'w-full max-w-2xl ml-auto rounded-[2rem] p-8 md:p-12 shadow-lg border border-black/5 flex flex-col relative overflow-hidden transition-all duration-300',
