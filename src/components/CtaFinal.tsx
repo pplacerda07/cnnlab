@@ -28,7 +28,7 @@ export default function CtaFinal() {
                             className="bg-white text-brand-dark hover:bg-brand-lightest font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center gap-2 w-full sm:w-auto justify-center text-lg"
                         >
                             <MessageCircle size={22} />
-                            Iniciar minha jornada via WhatsApp
+                            Falar com um especialista agora no WhatsApp
                         </a>
                     </div>
 

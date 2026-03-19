@@ -187,8 +187,7 @@ export default function Patologias() {
                             <span className="font-serif italic text-brand-dark">tratamos.</span>
                         </h2>
                         <p className="text-lg text-gray-400 font-light leading-relaxed max-w-lg">
-                            Cada pessoa chega com uma história diferente. 
-                            A cannabis medicinal pode fazer parte da sua.
+                            Nosso objetivo não é apenas tratar sintomas. É reduzir sua dependência de medicamentos, trazendo mais leveza, estabilidade e qualidade de vida.
                         </p>
                     </div>
 

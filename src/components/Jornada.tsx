@@ -189,8 +189,7 @@ export default function Jornada() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="max-w-md text-[#4a4a4a] text-lg md:text-xl leading-relaxed font-sans font-light"
                         >
-                            Descubra a praticidade do nosso atendimento humanizado,
-                            criado pela nossa equipe experiente para facilitar o seu acesso à saúde integral.
+                            Acreditamos que uma consulta não deve ser apenas para prescrever um medicamento. Ela deve ser o início de uma vida mais equilibrada, com acompanhamento contínuo e cuidado real.
                         </motion.p>
                     </div>
 

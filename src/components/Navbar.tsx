@@ -28,21 +28,21 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-start px-6 md:px-12 lg:px-24 pt-4">
+        <div className="absolute top-0 left-0 right-0 z-50 flex flex-col items-start px-4 md:px-12 lg:px-24 pt-6 md:pt-8 lg:pt-1">
             <nav
                 className={cn(
                     'transition-all duration-300 relative w-full',
-                    scrolled ? 'py-4' : 'py-6'
+                    scrolled ? 'py-2' : 'py-3 lg:py-2'
                 )}
             >
                 <div className="flex items-center justify-between w-full">
-                    {/* Logo - alinhada à esquerda */}
+                    {/* Logo */}
                     <Link href="/" className="flex flex-col">
                         <Image
-                            src="/new_logo_nn.svg"
-                            alt="CannaLab Logo"
-                            width={140}
-                            height={40}
+                            src="/new_logo.svg"
+                            alt="Cannalab Logo"
+                            width={190}
+                            height={55}
                             priority
                             className="drop-shadow-md"
                         />
@@ -69,7 +69,7 @@ export default function Navbar() {
                             rel="noopener noreferrer"
                             className="bg-brand-dark text-white hover:bg-brand-dark/90 px-6 py-2.5 rounded-full font-medium text-sm transition-colors shadow-sm"
                         >
-                            Falar com especialista
+                            Falar com um especialista agora no WhatsApp
                         </a>
                     </div>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
                         className="bg-brand-dark text-white text-center hover:bg-brand-dark/90 px-6 py-3 rounded-full font-medium transition-colors mt-4"
                         onClick={() => setMobileMenuOpen(false)}
                     >
-                        Falar com especialista
+                        Falar com um especialista agora no WhatsApp
                     </a>
                 </div>
             )}

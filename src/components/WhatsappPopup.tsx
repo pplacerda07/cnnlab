@@ -59,7 +59,7 @@ export default function WhatsappPopup() {
                             <MessageCircle size={24} className="text-white" />
                         </div>
                         <div>
-                            <h4 className="text-white font-bold text-base">CannaLab</h4>
+                            <h4 className="text-white font-bold text-base">Cannalab</h4>
                             <p className="text-white/70 text-xs">
                                 Normalmente responde em minutos
                             </p>
@@ -78,7 +78,7 @@ export default function WhatsappPopup() {
                                 }}
                             />
                             <p className="text-sm text-gray-800 leading-relaxed">
-                                Olá! 👋 Bem-vindo à <strong>CannaLab</strong>.
+                                Olá! 👋 Bem-vindo à <strong>Cannalab</strong>.
                                 <br />
                                 Como podemos te ajudar hoje?
                             </p>
@@ -100,7 +100,7 @@ export default function WhatsappPopup() {
                             }}
                         >
                             <MessageCircle size={18} />
-                            Iniciar Conversa
+                            Falar com especialista agora
                         </a>
                     </div>
                 </div>

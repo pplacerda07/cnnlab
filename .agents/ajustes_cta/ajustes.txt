@@ -1,0 +1,95 @@
+Estrutura de Ajustes — CannaLab
+1. Posicionamento (Hero / Topo do Site)
+Ajustes necessários:
+●	Padronização do nome: colocar o nome Cannalab
+
+●	Refinar a mensagem para um nível mais clínico, confiável e menos genérico
+
+
+CTA principal:
+Começar meu tratamento com orientação médica
+CTA secundário:
+Falar com um especialista agora no WhatsApp
+
+2. Clareza de proposta (antes da Parte 2)
+
+Possibilidade de deixar o quiz aqui.
+
+Quiz:
+
+PAG 1 
+
+O que você tem
+
+PAG 2
+
+O que você espera
+
+PAG 3 
+
+Adicionar essa seleção:
+
+ Seção de qualificação do paciente 
+Sobre seu histórico de tratamento
+Você já tentou algum tratamento para essa condição?
+ Essa informação ajuda o médico a entender melhor o seu caso antes da consulta e oferecer uma orientação mais precisa.
+Nunca busquei tratamento
+Estou começando agora e quero entender as opções disponíveis.
+Já utilizei medicamentos convencionais
+Com ou sem resultados satisfatórios.
+Uso medicação atualmente, mas busco uma alternativa
+Tive efeitos colaterais ou não obtive o resultado esperado.
+Já tentei abordagens naturais sem sucesso
+Como meditação, fitoterápicos ou outras terapias alternativas.
+
+PAG 4
+
+podemos te ajudar
+
+Dados
+
+
+
+Problema identificado:
+ Falta clareza sobre:
+●	Quem somos
+
+●	O que fazemos
+
+●	Por que confiar
+
+Inserir bloco:
+Quem somos
+ Somos uma plataforma de telemedicina especializada em cannabis medicinal, que conecta você a médicos qualificados e acompanha toda a jornada do paciente — da consulta ao processo junto à ANVISA.
+Proposta de valor:
+ Você nos mostra sua condição e seus objetivos
+ Nós guiamos você com segurança médica e acompanhamento contínuo
+
+3. Jornada emocional (Parte 2 → nova Parte 3)
+Texto sugerido:
+Acreditamos que uma consulta não deve ser apenas para prescrever um medicamento.
+ Ela deve ser o início de uma vida mais equilibrada, com acompanhamento contínuo e cuidado real.
+
+4. Bloco de transformação (Parte 3 / 4)
+Texto sugerido:
+Nosso objetivo não é apenas tratar sintomas.
+ É reduzir sua dependência de medicamentos, trazendo mais leveza, estabilidade e qualidade de vida.
+
+
+5. Estratégia de CTA (conversão)
+Substituir CTAs genéricos por abordagens mais diretas e humanizadas:
+Evitar:
+ Clique aqui
+ Saiba mais
+Utilizar:
+ Vem conversar, a gente te guia
+ Falar com um especialista agora no WhatsApp
+6. Ajustes de UX e Design
+●	Revisar tipografia, especialmente em blocos com imagem
+
+●	Aumentar contraste e destaque dos botões de ação
+
+●	Inserir botão fixo de ação: “Me consultar agora”
+
+●	Reduzir blocos genéricos e aumentar blocos orientados à decisão
+
