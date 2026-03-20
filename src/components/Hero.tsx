@@ -19,17 +19,20 @@ export default function Hero() {
             <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 mt-10 md:mt-0 flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-8 w-full max-w-6xl text-center">
 
-                    <h1 className="text-white leading-[1.1] tracking-tight flex flex-col font-sans uppercase drop-shadow-2xl text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-bold mx-auto">
-                        <span className="block mb-1 drop-shadow-lg whitespace-normal lg:whitespace-nowrap">
-                            medicina com propósito
+                    <h1 className="text-white leading-[1.1] tracking-tight flex flex-col font-sans uppercase drop-shadow-2xl text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-bold mx-auto">
+                        <span className="block mb-1 drop-shadow-lg whitespace-normal md:whitespace-nowrap">
+                            Consulta médica com cannabis
                         </span>
-                        <span className="block drop-shadow-lg">
-                            e resultado
+                        <span className="block mb-1 drop-shadow-lg whitespace-normal md:whitespace-nowrap">
+                            medicinal para quem
+                        </span>
+                        <span className="block drop-shadow-lg whitespace-normal md:whitespace-nowrap">
+                            mais precisa de suporte
                         </span>
                     </h1>
 
-                    <p className="text-white/95 text-lg md:text-[1.35rem] font-medium max-w-2xl mt-0 drop-shadow-xl text-shadow-sm">
-                        Conectamos você a médicos especializados para um tratamento seguro com cannabis medicinal.
+                    <p className="text-white/95 text-lg md:text-[1.35rem] font-medium max-w-4xl mt-0 drop-shadow-xl text-shadow-sm">
+                        Cuidamos de todo o processo: da consulta com médico especializado até a autorização na ANVISA. Com atendimento humano em cada etapa.
                     </p>
 
                     {/* CTAs */}

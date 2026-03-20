@@ -23,7 +23,7 @@ const HISTORIES = [
 export default function Quiz() {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
-        condition: '',
+        condition: [] as string[],
         expectation: '',
         history: '',
         name: '',
@@ -35,10 +35,22 @@ export default function Quiz() {
         setStep(prev => prev + 1);
     };
 
+    const handleConditionSelect = (condition: string) => {
+        setFormData(prev => {
+            const isSelected = prev.condition.includes(condition);
+            if (isSelected) {
+                return { ...prev, condition: prev.condition.filter(c => c !== condition) };
+            } else if (prev.condition.length < 2) {
+                return { ...prev, condition: [...prev.condition, condition] };
+            }
+            return prev;
+        });
+    };
+
     const handleNextStep = (e: React.FormEvent) => {
         e.preventDefault();
         if (step === 4 && formData.name && formData.phone) {
-            const message = `Olá! Meu nome é ${formData.name}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}\nMeu número é ${formData.phone}.`;
+            const message = `Olá! Meu nome é ${formData.name}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition.join(', ')}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}\nMeu número é ${formData.phone}.`;
             window.open(generateWhatsAppLink(message), '_blank');
         }
     };
@@ -69,17 +81,36 @@ export default function Quiz() {
 
                     {/* Step 1: Condition Selection */}
                     {step === 1 && (
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                            {CONDITIONS.map((condition) => (
+                        <div>
+                            <p className="text-gray-400 mb-6 text-sm font-medium">
+                                Você pode selecionar até 2 opções.
+                            </p>
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                                {CONDITIONS.map((condition) => {
+                                    const isSelected = formData.condition.includes(condition);
+                                    return (
+                                        <button
+                                            key={condition}
+                                            onClick={() => handleConditionSelect(condition)}
+                                            className={`w-full text-left py-4 px-5 rounded-xl border transition-all text-[15px] font-medium flex items-center justify-between group
+                                                ${isSelected 
+                                                    ? 'bg-brand-light border-brand-primary text-brand-dark shadow-sm' 
+                                                    : 'border-gray-200 bg-gray-50 hover:bg-brand-light hover:border-brand-primary text-gray-800'}`}
+                                        >
+                                            {condition}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            <div className="mt-8 flex justify-end">
                                 <button
-                                    key={condition}
-                                    onClick={() => handleSelect('condition', condition)}
-                                    className="w-full text-left py-4 px-5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-brand-light hover:border-brand-primary transition-all text-[15px] font-medium text-gray-800 flex items-center justify-between group"
+                                    onClick={() => setStep(2)}
+                                    disabled={formData.condition.length === 0}
+                                    className="bg-brand-dark hover:bg-[#124d22] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded-xl shadow-lg shadow-brand-dark/20 transition-all flex justify-center items-center gap-2"
                                 >
-                                    {condition}
-                                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-primary flex-shrink-0 ml-2" />
+                                    Continuar <ArrowRight size={18} />
                                 </button>
-                            ))}
+                            </div>
                         </div>
                     )}
 
