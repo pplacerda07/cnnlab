@@ -21,18 +21,18 @@ export default function Hero() {
 
                     <h1 className="text-white leading-[1.1] tracking-tight flex flex-col font-sans uppercase drop-shadow-2xl text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-bold mx-auto">
                         <span className="block mb-1 drop-shadow-lg whitespace-normal md:whitespace-nowrap">
-                            Consulta médica com cannabis
+                            Cannabis medicinal com
                         </span>
                         <span className="block mb-1 drop-shadow-lg whitespace-normal md:whitespace-nowrap">
-                            medicinal para quem
+                            acompanhamento real,
                         </span>
                         <span className="block drop-shadow-lg whitespace-normal md:whitespace-nowrap">
-                            mais precisa de suporte
+                            do início ao fim.
                         </span>
                     </h1>
 
                     <p className="text-white/95 text-lg md:text-[1.35rem] font-medium max-w-4xl mt-0 drop-shadow-xl text-shadow-sm">
-                        Cuidamos de todo o processo: da consulta com médico especializado até a autorização na ANVISA. Com atendimento humano em cada etapa.
+                        Do médico especializado à autorização na ANVISA. Com humano em cada etapa.
                     </p>
 
                     {/* CTAs */}
@@ -41,7 +41,7 @@ export default function Hero() {
                             href="#quiz"
                             className="w-full sm:w-auto bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-md text-white font-semibold py-3 px-6 rounded-full border border-white/20 shadow-lg transition-all duration-300 flex justify-center items-center gap-2 text-sm md:text-base"
                         >
-                            Começar meu tratamento com orientação médica <ArrowRight size={18} />
+                            Começar meu tratamento <ArrowRight size={18} />
                         </Link>
 
                         <a
@@ -50,7 +50,7 @@ export default function Hero() {
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-md text-white font-semibold py-3 px-6 rounded-full border border-white/20 shadow-lg transition-all duration-300 flex justify-center items-center gap-2 text-sm md:text-base"
                         >
-                            <MessageCircle size={18} /> Falar com um especialista agora no WhatsApp
+                            <MessageCircle size={18} /> Falar no WhatsApp
                         </a>
                     </div>
                 </div>

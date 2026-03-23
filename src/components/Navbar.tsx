@@ -69,7 +69,7 @@ export default function Navbar() {
                             rel="noopener noreferrer"
                             className="bg-brand-dark text-white hover:bg-brand-dark/90 px-6 py-2.5 rounded-full font-medium text-sm transition-colors shadow-sm"
                         >
-                            Falar com um especialista agora no WhatsApp
+                            Falar no WhatsApp
                         </a>
                     </div>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
                         className="bg-brand-dark text-white text-center hover:bg-brand-dark/90 px-6 py-3 rounded-full font-medium transition-colors mt-4"
                         onClick={() => setMobileMenuOpen(false)}
                     >
-                        Falar com um especialista agora no WhatsApp
+                        Falar no WhatsApp
                     </a>
                 </div>
             )}

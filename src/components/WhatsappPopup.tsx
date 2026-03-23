@@ -100,7 +100,7 @@ export default function WhatsappPopup() {
                             }}
                         >
                             <MessageCircle size={18} />
-                            Falar com especialista agora
+                            Falar no WhatsApp
                         </a>
                     </div>
                 </div>
