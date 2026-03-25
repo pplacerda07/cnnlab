@@ -20,18 +20,6 @@ const HISTORIES = [
     { title: 'Já tentei abordagens naturais sem sucesso', desc: 'Como meditação, fitoterápicos ou outras terapias alternativas.' }
 ];
 
-function formatPhone(value: string): string {
-    const digits = value.replace(/\D/g, '').slice(0, 11);
-    if (digits.length <= 2) return digits.length ? `(${digits}` : '';
-    if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-}
-
-function isPhoneValid(phone: string): boolean {
-    const digits = phone.replace(/\D/g, '');
-    return digits.length >= 10;
-}
-
 export default function Quiz() {
     const [step, setStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
@@ -39,8 +27,7 @@ export default function Quiz() {
         condition: [] as string[],
         expectation: '',
         history: '',
-        name: '',
-        phone: ''
+        name: ''
     });
 
     const handleSelect = (field: string, value: string) => {
@@ -60,15 +47,10 @@ export default function Quiz() {
         });
     };
 
-    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const formatted = formatPhone(e.target.value);
-        setFormData(prev => ({ ...prev, phone: formatted }));
-    };
-
     const handleNextStep = (e: React.FormEvent) => {
         e.preventDefault();
-        if (step === 4 && formData.name.trim() && isPhoneValid(formData.phone)) {
-            const message = `Olá! Meu nome é ${formData.name.trim()}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition.join(', ')}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}\nMeu WhatsApp: ${formData.phone}`;
+        if (step === 4 && formData.name.trim()) {
+            const message = `Olá! Meu nome é ${formData.name.trim()}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition.join(', ')}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}`;
             window.open(generateWhatsAppLink(message), '_blank');
             setSubmitted(true);
         }
@@ -77,10 +59,10 @@ export default function Quiz() {
     const handleRestart = () => {
         setStep(1);
         setSubmitted(false);
-        setFormData({ condition: [], expectation: '', history: '', name: '', phone: '' });
+        setFormData({ condition: [], expectation: '', history: '', name: '' });
     };
 
-    const isFormValid = formData.name.trim().length > 0 && isPhoneValid(formData.phone);
+    const isFormValid = formData.name.trim().length > 0;
 
     return (
         <section id="quiz" className="py-12 md:py-16 w-full bg-[#ffff] overflow-hidden">
@@ -99,7 +81,7 @@ export default function Quiz() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 justify-center">
                                 <a
-                                    href={generateWhatsAppLink(`Olá! Meu nome é ${formData.name.trim()}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition.join(', ')}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}\nMeu WhatsApp: ${formData.phone}`)}
+                                    href={generateWhatsAppLink(`Olá! Meu nome é ${formData.name.trim()}. Gostaria de entender como a Cannalab pode me ajudar.\nCondição: ${formData.condition.join(', ')}\nEspectativa: ${formData.expectation}\nHistórico: ${formData.history}`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-[#124d22] text-white font-semibold py-3.5 px-8 rounded-xl shadow-lg shadow-brand-dark/20 transition-all"
@@ -222,7 +204,7 @@ export default function Quiz() {
                                         <ArrowLeft size={16} /> Voltar
                                     </button>
                                     <form onSubmit={handleNextStep} className="space-y-4">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="space-y-4">
                                             <div>
                                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome completo</label>
                                                 <input
@@ -233,19 +215,6 @@ export default function Quiz() {
                                                     placeholder="Digite seu nome"
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
-                                                <input
-                                                    type="tel"
-                                                    id="phone"
-                                                    required
-                                                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all text-gray-900 placeholder:text-gray-400 font-medium text-[15px]"
-                                                    placeholder="(00) 00000-0000"
-                                                    value={formData.phone}
-                                                    onChange={handlePhoneChange}
-                                                    maxLength={15}
                                                 />
                                             </div>
                                         </div>
