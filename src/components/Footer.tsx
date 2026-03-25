@@ -93,7 +93,7 @@ export default function Footer() {
                                         <MessageCircle size={18} className="mt-0.5 flex-shrink-0 text-white/30 group-hover:text-[#25D366] transition-colors" />
                                         <div>
                                             <span className="text-sm block">WhatsApp</span>
-                                            <span className="text-xs text-white/30">(11) 99999-9999</span>
+                                            <span className="text-xs text-white/30">(67) 99876-0007</span>
                                         </div>
                                     </a>
                                 </li>

@@ -24,10 +24,10 @@ export default function Hero() {
                             Cannabis medicinal com
                         </span>
                         <span className="block mb-1 drop-shadow-lg whitespace-normal md:whitespace-nowrap">
-                            acompanhamento real,
+                            <span className="font-serif italic lowercase font-normal tracking-normal text-[#d5ebd9] text-[1.1em]">acompanhamento real</span>,
                         </span>
-                        <span className="block drop-shadow-lg whitespace-normal md:whitespace-nowrap">
-                            do início ao fim.
+                        <span className="block drop-shadow-lg whitespace-normal md:whitespace-nowrap mt-2">
+                            do início ao fim
                         </span>
                     </h1>
 
