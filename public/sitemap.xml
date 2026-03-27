@@ -1,158 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
 
-  <!-- Página Inicial -->
+  <!-- Página Inicial (landing page principal) -->
   <url>
     <loc>https://www.labcanna.com.br/</loc>
     <lastmod>2026-03-27</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <!-- Páginas Principais de Navegação -->
-  <url>
-    <loc>https://www.labcanna.com.br/como-funciona</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/patologias</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/quem-somos</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/depoimentos</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/duvidas-frequentes</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/artigos</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Páginas de Condições Tratadas (Patologias) -->
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/ansiedade</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/insonia</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/dor-cronica</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/depressao</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/fibromialgia</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/epilepsia</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/tdah</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/parkinson</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/autismo-tea</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/esclerose-multipla</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/tratamento/nausea-oncologica</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Páginas de Artigos -->
-  <url>
-    <loc>https://www.labcanna.com.br/artigos/anvisa-aprova-regras-cannabis-medicinal</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/artigos/brasil-supera-pacientes-cannabis</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/artigos/cannabis-autismo-resultados-promissores</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/artigos/historias-reais-acesso-cannabis-medicinal</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Páginas Legais -->
-  <url>
-    <loc>https://www.labcanna.com.br/politica-de-privacidade</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.labcanna.com.br/termos-de-uso</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/new_logo.svg</image:loc>
+      <image:title>CannaLab – Cannabis Medicinal com Acompanhamento Real no Brasil</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Ansiedade.png</image:loc>
+      <image:title>Tratamento de Ansiedade com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Insonia.png</image:loc>
+      <image:title>Tratamento de Insônia com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_DorCronica.png</image:loc>
+      <image:title>Tratamento de Dor Crônica com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Depress%C3%A3o.png</image:loc>
+      <image:title>Tratamento de Depressão com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Fibormialgia.png</image:loc>
+      <image:title>Tratamento de Fibromialgia com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Epilepsia.png</image:loc>
+      <image:title>Tratamento de Epilepsia com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_TDAH.png</image:loc>
+      <image:title>Tratamento de TDAH com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Parkinson.png</image:loc>
+      <image:title>Tratamento de Parkinson com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Autismo.png</image:loc>
+      <image:title>Tratamento de Autismo (TEA) com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Esclerose%20M%C3%BAltipla.png</image:loc>
+      <image:title>Tratamento de Esclerose Múltipla com Cannabis Medicinal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.labcanna.com.br/foto_patologia_Na%C3%BAseaAncologica.png</image:loc>
+      <image:title>Tratamento de Náusea Oncológica com Cannabis Medicinal</image:title>
+    </image:image>
   </url>
 
 </urlset>
